@@ -8,8 +8,7 @@ defmodule SengledClient.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: SengledClient.Worker.start_link(arg)
-      # {SengledClient.Worker, arg}
+      {SengledClient.Session, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

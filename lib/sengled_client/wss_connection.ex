@@ -5,7 +5,6 @@ defmodule SengledClient.WssConnection do
   require Logger
 
   @moduledoc false
-  alias SengledClient.WssConnectionSupervisor
 
   def start_link(opts) do
     url = Keyword.get(opts, :url)
@@ -16,8 +15,6 @@ defmodule SengledClient.WssConnection do
       {<<"Cookie">>, "JSESSIONID=#{session_id}"},
       {<<"sid">>, session_id}
     ]
-
-    {:ok, wss_connection_pid } = WssConnectionSupervisor.start_child(headers: headers, url: url, session_id: session_id)
 
     WebSockex.start_link(url, __MODULE__, opts, extra_headers: headers)
   end
