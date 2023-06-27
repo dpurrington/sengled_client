@@ -89,3 +89,31 @@
 d["attributeList"] |> Enum.into(%{}, fn e -> { e["name"], e["value]} end)
 # attributes to a map
 d["attributeList"] |> Enum.into(%{}, fn elem -> { elem["name"], elem["value"]}end)
+
+# Transport spec & usage
+* new
+* new(opts)
+
+## Used
+* connect -- Connection
+* send -- Pipe, Connection
+* recv -- Connection
+* setopts -- Receiver
+* getstat -- Telemetry
+* controlling_process - Receiver (subscribe?)
+## Not used
+* listen(opts) -- not used
+* accept -- not used
+* accept_ack -- not used
+* getopts -- not used
+* peername - not used
+* sockname - not used
+* shutdown - not used
+* close - not used
+
+# silver searcher cheat sheet
+--hidden : include hidden files
+--ignore : ignore files/directories matching PATTERN, put pattern in quotes to avoid expansion
+-G REGEX : search only files whose names match the regex
+-C # : number of lines of context to print before and after
+--pager PAGERNAME : use a pager for output

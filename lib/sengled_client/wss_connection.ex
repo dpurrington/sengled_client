@@ -20,6 +20,7 @@ defmodule SengledClient.WssConnection do
   end
 
   def send(client, message) do
+    # why?
     WebSockex.send_frame(client, {:text, message})
   end
 
